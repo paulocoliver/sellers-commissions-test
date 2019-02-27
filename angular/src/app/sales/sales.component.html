@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm ">
+            <h1 class="text-center">Vendas</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="dataSource">
+
+        <div class="row mb-3">
+            <div class="col-sm">
+                <p>
+                    <strong>Vendedor:</strong><br>
+                    {{seller.name}}<br><small>{{seller.email}}</small>
+                </p>
+            </div>
+            <div class="col-sm text-right">
+                <button mat-raised-button color="primary" (click)="create()">Adicionar venda</button>
+            </div>
+        </div>
+
+        <mat-card>
+            <table mat-table *ngIf="dataSource" [dataSource]="dataSource" style="width: 100%">
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> Id</th>
+                    <td mat-cell *matCellDef="let item"> {{item.id}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="commission">
+                    <th mat-header-cell *matHeaderCellDef> Comissão</th>
+                    <td mat-cell *matCellDef="let item"> {{item.commission | currencyFormat}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> Valor</th>
+                    <td mat-cell *matCellDef="let item"> {{item.amount  | currencyFormat}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="created_at">
+                    <th mat-header-cell *matHeaderCellDef> Criado em</th>
+                    <td mat-cell *matCellDef="let item"> {{item.created_at | date: 'dd/MM/yyyy'}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card>
+
+    </ng-container>
+
+</div>

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Lançar nova venda</h1>
+<form (ngSubmit)="save()">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Valor da Venda</mat-label>
+        <input type="number" matInput [(ngModel)]="sale.amount" name="name" class="w-100">
+    </mat-form-field>
+    <div class="row">
+        <div class="col text-right">
+            <button mat-raised-button color="primary" type="submit" cdkFocusInitial>Salvar</button>
+        </div>
+    </div>
+</form>

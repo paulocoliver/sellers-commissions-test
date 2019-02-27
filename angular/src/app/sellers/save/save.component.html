@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{seller.isSaved ? 'Alterar vendedor' : 'Criar vendedor'}}</h1>
+<form (ngSubmit)="save()">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input type="text"  matInput [(ngModel)]="seller.name" name="name" class="w-100">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput [(ngModel)]="seller.email" name="email" class="w-100">
+    </mat-form-field>
+    <div class="row">
+        <div class="col" *ngIf="seller.isSaved">
+            <button mat-stroked-button color="warn"   type="button" (click)="delete(seller)">Apagar</button>
+        </div>
+        <div class="col text-right">
+            <button mat-raised-button color="primary" type="submit" cdkFocusInitial>Salvar</button>
+        </div>
+    </div>
+</form>
