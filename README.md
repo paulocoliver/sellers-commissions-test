@@ -2,6 +2,8 @@
 
 **Full stack developer technical test**
 
+**Made with [Laravel5.7](https://laravel.com/docs/5.7) (PHP7.2) and [Angular7](https://angular.io/docs)**
+
 ## Dependencies: 
 
 [Docker](https://www.docker.com/get-started) :)
