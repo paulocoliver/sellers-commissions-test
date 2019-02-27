@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,6 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('/', function (Request $request) {
 
-    echo '<pre>';
-    print_r('ok');
-    echo '</pre>';
-    exit;
-
-    return $request->user();
-});
+Route::apiResource('sellers', 'SellerController');
+Route::apiResource('sales',   'SalesController');
