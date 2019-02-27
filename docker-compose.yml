@@ -59,7 +59,7 @@ services:
 #    build:
 #      context: ./angular
 #      dockerfile: ./_docker/Dockerfile
-    image: paulocoliver/seller-commissions-test-angular:1.0
+    image: paulocoliver/seller-commissions-test-angular
     container_name: seller-commissions-test-angular
     restart: unless-stopped
     ports:
