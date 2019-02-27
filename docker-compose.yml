@@ -3,10 +3,10 @@ services:
 
   #PHP Service
   php:
-    build:
-      context: ./api
-      dockerfile: ./_docker/Dockerfile
-    image: paulocoliver/api-php
+#    build:
+#      context: ./api
+#      dockerfile: ./_docker/Dockerfile
+    image: paulocoliver/seller-commissions-test-php
     container_name: seller-commissions-test-php
     restart: unless-stopped
     tty: true
@@ -54,23 +54,12 @@ services:
     networks:
     - api-network
 
-  #Mongo
-#  api-mongo:
-#    image: mongo
-#    container_name: seller-commissions-test-mongo
-#    restart: always
-#    ports:
-#    - "27017:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME:
-#      MONGO_INITDB_ROOT_PASSWORD:
-#    networks:
-#    - api-network
-
+  #Angular
   angular:
-    build:
-      context: ./angular
-      dockerfile: ./_docker/Dockerfile
+#    build:
+#      context: ./angular
+#      dockerfile: ./_docker/Dockerfile
+    image: paulocoliver/seller-commissions-test-angular:1.0
     container_name: seller-commissions-test-angular
     restart: unless-stopped
     ports:

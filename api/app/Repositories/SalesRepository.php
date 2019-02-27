@@ -1,6 +1,8 @@
 <?php
 namespace App\Repositories;
 
+use \Carbon\Carbon;
+
 class SalesRepository extends Repository
 {
     public function list(array $parameters) {
@@ -12,5 +14,12 @@ class SalesRepository extends Repository
         }
 
         return $query->get();
+    }
+
+    public function getTotalByDay(Carbon $date) {
+        return static::query()
+            ->whereDate('created_at', '>=', $date->startOfDay())
+            ->whereDate('created_at', '<=', $date->endOfDay())
+            ->sum('amount');
     }
 }
